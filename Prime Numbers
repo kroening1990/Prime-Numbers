@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >  
+
+</head> 
+<body> 
+<h2>The First Thousand Prime Numbers</h2> 
+<h3>Click to find the first thousand prime numbers</h3> 
+<form action=""> 
+<div> 
+<input type="button" id="btnDo" value="Find Prime">
+</div> 
+</form> 
+
+<script type="text/javascript"> 
+window.onload = function() {  
+  var btnDo = document.getElementById('btnDo'); 
+  
+  function isPrime(n) { 
+    var i; 
+    if (n < 2) { // 1, 0, and negative numbers are not prime. 
+      return false; 
+    } 
+    for (i = n - 1; i > 0; i--) { 
+      if (i == 1) { 
+        return true; 
+      } 
+      if (n % i == 0) { 
+        return false; 
+      } 
+    } 
+  } 
+  btnDo.onclick = function() { 
+    
+    var n, nPrime = []; 
+    for (n = 2; nPrime.length < 1000; n++) { 
+      if (isPrime(n)) { 
+        nPrime[nPrime.length] = n; 
+      } 
+    } 
+    alert('Prime Numbers:\n' + nPrime.join(", "));  
+  }
+}; 
+</script> 
+</body> 
+</html> 
